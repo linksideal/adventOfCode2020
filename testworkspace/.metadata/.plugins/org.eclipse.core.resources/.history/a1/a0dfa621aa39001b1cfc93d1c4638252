@@ -1,0 +1,14 @@
+package adventofcode;
+
+public class Byr extends Field{
+
+	public Byr(String rohdaten) {
+		super(rohdaten);
+	}
+	
+	@Override
+	public boolean istValide() {
+		return false;
+	}
+
+}

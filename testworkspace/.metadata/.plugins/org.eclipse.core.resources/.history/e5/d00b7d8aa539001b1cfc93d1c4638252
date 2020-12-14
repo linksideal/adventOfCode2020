@@ -1,0 +1,37 @@
+package adventofcode;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Passport {
+	List<String> rohdaten;
+	List<Field> fields;
+
+	public Passport(List<String> rohdaten) {
+		this.rohdaten = rohdaten;
+		this.fields = new ArrayList<>();
+		for (String zeile : rohdaten) {
+			int i = zeile.indexOf(' ');
+			Field field = new Field(zeile.substring(0, i));
+			fields.add(field);
+			String zeile_rest = zeile.substring(i + 1, zeile.length());
+		}
+	}
+
+	private List<Field> ermittleFields(String zeile) {
+		List<Field> fields = new ArrayList<>();
+		String zeile_rest = zeile;
+		while (zeile_rest.length() > 0) {
+			int i = zeile_rest.indexOf(' ');
+			if (i > -1) {
+				Field field = new Field(zeile_rest.substring(0, i));
+				fields.add(field);
+				zeile_rest = zeile_rest.substring(i + 1, zeile_rest.length());
+			}
+		}
+		Field field = 
+		fields.add(new Field(zeile_rest));
+		return fields;
+	}
+
+}

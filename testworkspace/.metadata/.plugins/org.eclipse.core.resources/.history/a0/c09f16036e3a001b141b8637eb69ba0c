@@ -1,0 +1,44 @@
+package adventofcode;
+
+public class Seat {
+	int row;
+	int column;
+
+	public Seat(String seatCode) throws Exception {
+		
+		String columnCode = seatCode.substring(7);
+		row = mapRow(seatCode);
+		
+	}
+	
+	private int mapColumn(String seatCode) {
+		String columnCode = seatCode.substring(7);
+		String columnBinary = "";
+		for (char c : rowCode.toCharArray()) {
+			rowBinary.concat(mapFrontBack(c));
+		}
+
+		return Integer.parseInt(rowBinary, 2);
+	}
+
+	private int mapRow(String seatCode) throws Exception {
+		String rowCode = seatCode.substring(0, 7);
+		String rowBinary = "";
+		for (char c : rowCode.toCharArray()) {
+			rowBinary.concat(mapFrontBack(c));
+		}
+
+		return Integer.parseInt(rowBinary, 2);
+	}
+	
+	private String mapFrontBack(char c) throws Exception {
+		switch (c) {
+		case 'F':
+			return "0";
+		case 'B':
+			return "1";
+		default:
+			throw new Exception();
+		}
+	}
+}

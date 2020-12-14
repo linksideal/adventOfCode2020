@@ -1,0 +1,40 @@
+
+l
+squid:S106Ø"9Replace this use of System.out or System.err by a logger.(¹úï;8£öìÍä.HRMAJORZ
+CODE_SMELL
+ˆsquid:S3008X"ORename this field "BAUM" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( İãŠşÿÿÿÿ8‹›ãúã.H‚RMINORZ
+CODE_SMELL
+usquid:UnusedPrivateMethoda".Remove this unused private "aufgabe3b" method.(ä£…Šÿÿÿÿÿ8ñ»±¤ä.HƒRMAJORZ
+CODE_SMELL
+vsquid:UnusedPrivateMethodµ".Remove this unused private "aufgabe4b" method.(ú÷ÒÈüÿÿÿÿ8ù‡‰Íä.H„RMAJORZ
+CODE_SMELL
+›squid:S1488¦"aImmediately return this expression instead of assigning it to the temporary variable "passports".(“²ˆ¤ûÿÿÿÿ8²ÏÀ¥ä.H…RMINORZ
+CODE_SMELL
+‰squid:S3008Y"PRename this field "WIESE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ĞË×şÿÿÿÿ8ğÇãúã.H†RMINORZ
+CODE_SMELL
+l
+squid:S106$"9Replace this use of System.out or System.err by a logger.(‘ÚÒş8úé¹ûã.H‡RMAJORZ
+CODE_SMELL
+|squid:S00112’"FDefine and throw a dedicated exception instead of using a generic one.(¡Ñ¸£8›‡‘Íä.HˆRMAJORZ
+CODE_SMELL
+r
+squid:S106è"9Replace this use of System.out or System.err by a logger.(è³ÂÌıÿÿÿÿ8§İ‰Íä.H‰RMAJORZ
+CODE_SMELL
+usquid:UnusedPrivateMethod[".Remove this unused private "aufgabe3a" method.(¿²æ¯ùÿÿÿÿ8ñ»±¤ä.HŠRMAJORZ
+CODE_SMELL
+qsquid:UnusedPrivateMethodª".Remove this unused private "aufgabe4a" method.(ï…8È™¦ä.H‹RMAJORZ
+CODE_SMELL
+”squid:S3008"[Rename this field "EINGABE_AUFGABE1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì¤Ô£ıÿÿÿÿ8ßÿµñã.HŒRMINORZ
+CODE_SMELL
+vsquid:UnusedPrivateMethodì".Remove this unused private "aufgabe5a" method.(ÆàÃúÿÿÿÿ8ƒ¤îÍä.HRMAJORZ
+CODE_SMELL
+{squid:S00112Ü"FDefine and throw a dedicated exception instead of using a generic one.(Ääº}8™Ô½Íä.HRMAJORZ
+CODE_SMELL
+}squid:UnusedPrivateMethodÎ"5Remove this unused private "testValideFields" method.(°¢Òÿÿÿÿÿ8–„£¦ä.HRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ı´÷øÿÿÿÿ8ñ»±¤ä.HRMAJORZ
+CODE_SMELL
+psquid:UnusedPrivateMethod'".Remove this unused private "aufgabe1a" method.(¤ü°˜8ñ»±¤ä.H‘RMAJORZ
+CODE_SMELL
+usquid:UnusedPrivateMethod>".Remove this unused private "aufgabe1b" method.(¯›£úÿÿÿÿ8ñ»±¤ä.H’RMAJORZ
+CODE_SMELL

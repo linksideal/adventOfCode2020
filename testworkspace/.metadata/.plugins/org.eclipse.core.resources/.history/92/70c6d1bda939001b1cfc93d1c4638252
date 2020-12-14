@@ -1,0 +1,10 @@
+package adventofcode;
+
+public class Byr extends Field{
+
+	public Byr(String rohdaten) {
+		super(rohdaten);
+		// TODO Auto-generated constructor stub
+	}
+
+}

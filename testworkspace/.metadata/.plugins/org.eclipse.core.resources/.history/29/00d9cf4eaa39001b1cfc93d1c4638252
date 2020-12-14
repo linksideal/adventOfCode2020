@@ -1,0 +1,15 @@
+package adventofcode;
+
+public class Byr extends Field{
+
+	public Byr(String rohdaten) {
+		super(rohdaten);
+	}
+	
+	@Override
+	public boolean istValide() {
+		Integer valueInt = Integer.getInteger(value);
+		return value.length() == 4 && valueInt >= 1920 && valueInt <= 2002;
+	}
+
+}

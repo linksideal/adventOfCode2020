@@ -1,0 +1,9 @@
+package adventofcode;
+
+public class Seat {
+	int row;
+	int column;
+	public Seat(String SeatCode) {
+		
+	}
+}
