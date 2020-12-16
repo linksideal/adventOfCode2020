@@ -42,14 +42,7 @@ public class Bags {
 	}
 
 	public int numberOfBagsInsideBag(String bagId) {
-		int sum = 0;
-		if (bagMap.containsKey(bagId)) {
-			Bag bag = bagMap.get(bagId);
-
-			for (BagRel bagRel : bag.getBagRels()) {
-				sum += bagRel.getCardinality() * (1 + numberOfBagsInsideBag(bagRel.getBagId()));
-			}
-		}
-		return sum;
+		return bagMap.getOrDefault(bagId, new Bag()).getBagRels().stream()
+				.mapToInt(bagRel -> bagRel.getCardinality() * (1 + numberOfBagsInsideBag(bagRel.getBagId()))).sum();
 	}
 }
