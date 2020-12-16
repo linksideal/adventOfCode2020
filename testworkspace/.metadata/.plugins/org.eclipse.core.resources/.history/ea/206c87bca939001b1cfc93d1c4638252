@@ -1,5 +1,0 @@
-package adventofcode;
-
-public class Byr extends Field{
-
-}
