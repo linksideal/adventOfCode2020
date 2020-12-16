@@ -6,20 +6,14 @@ import java.util.stream.Collectors;
 
 public class Bag {
 
-	private List<String> validChildBagIDs;
+	private List<BagRel> bagRels;
 	private String id;
-
-	public Bag(String id, List<String> validChildBagIDs) {
-		this.id = id;
-		this.validChildBagIDs = validChildBagIDs;
-	}
 
 	public Bag(String line) {
 		this.id = line.split("contain")[0].replace("bags", "").trim();
-		this.validChildBagIDs = Arrays
+		this.bagRels = Arrays
 				.asList(line.split("contain")[1].split(",")).stream().map(string -> string.replace(".", "")
-						.replace("bags", "").replace("bag", "").replaceAll("[0-9] ", "").trim())
-				.collect(Collectors.toList());
+						.replace("bags", "").replace("bag", "").trim()).map(s -> new BagRel(s)).collect(Collectors.toList());
 	}
 
 	// GETTER
@@ -27,13 +21,8 @@ public class Bag {
 		return this.id;
 	}
 
-	public List<String> getValidChildBagIDs() {
-		return this.validChildBagIDs;
-	}
-
-	// SETTER
-	public void setValidChildBagIDs(List<String> validChildBagIDs) {
-		this.validChildBagIDs = validChildBagIDs;
+	public List<BagRel> getBagRels() {
+		return this.bagRels;
 	}
 
 }

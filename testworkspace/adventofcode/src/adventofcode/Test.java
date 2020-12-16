@@ -36,7 +36,7 @@ public class Test {
 		//System.out.println(aufgabe5b());
 		//System.out.println(new Aufgabe6(leseDatei("src/adventofcode/input6.txt")).a());
 		//System.out.println(new Aufgabe6(leseDatei("src/adventofcode/input6.txt")).b());
-		System.out.println(new Aufgabe7(leseDatei("src/adventofcode/input7.txt")).a());
+		System.out.println(new Aufgabe7(leseDatei("src/adventofcode/input7.txt")).ermittle());
 	}
 
 	private static int aufgabe1a() {

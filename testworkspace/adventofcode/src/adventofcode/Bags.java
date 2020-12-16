@@ -23,20 +23,33 @@ public class Bags {
 		Bag bag = new Bag(line);
 		bagMap.put(bag.getId(), bag);
 	}
-	
+
 	public int numberOfBagsThatCanContainShinyGoldBag() {
 		return (int) bagMap.values().stream().filter(this::bagContainsShinyGold).count();
 	}
 
 	private boolean bagContainsShinyGold(Bag bag) {
-		return bag.getValidChildBagIDs().stream().anyMatch(bagId -> (bagIsShinyGold(bagId) || bagContainsShinyGold(bagId)));
+		return bag.getBagRels().stream()
+				.anyMatch(bagRel -> (bagIsShinyGold(bagRel.getBagId()) || bagContainsShinyGold(bagRel.getBagId())));
 	}
-	
+
 	private boolean bagContainsShinyGold(String bagId) {
 		return bagMap.containsKey(bagId) && bagContainsShinyGold(bagMap.get(bagId));
 	}
 
 	private boolean bagIsShinyGold(String bagId) {
 		return bagId.equals("shiny gold");
+	}
+
+	public int numberOfBagsInsideBag(String bagId) {
+		int sum = 0;
+		if (bagMap.containsKey(bagId)) {
+			Bag bag = bagMap.get(bagId);
+
+			for (BagRel bagRel : bag.getBagRels()) {
+				sum += bagRel.getCardinality() * (1 + numberOfBagsInsideBag(bagRel.getBagId()));
+			}
+		}
+		return sum;
 	}
 }
