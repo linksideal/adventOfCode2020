@@ -11,6 +11,7 @@ public abstract class Exercise {
 	protected int exNumber;
 
 	protected List<String> testInput;
+	protected List<String> testInputB;
 	protected List<String> input;
 
 	protected Object expectationTestA;
@@ -25,6 +26,12 @@ public abstract class Exercise {
 	public Exercise(String pathInput, String pathTestInput) throws IOException {
 		this.input = readFile(pathInput);
 		this.testInput = readFile(pathTestInput);
+	}
+	
+	public Exercise(String pathInput, String pathTestInputA, String pathTestInputB) throws IOException {
+		this.input = readFile(pathInput);
+		this.testInput = readFile(pathTestInputA);
+		this.testInputB = readFile(pathTestInputB);
 	}
 
 	public void printResults() {

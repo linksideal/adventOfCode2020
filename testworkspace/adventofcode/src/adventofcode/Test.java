@@ -30,6 +30,7 @@ public class Test {
 		new Exercise10().printResults();
 		new Exercise09().printResults();
 		new Exercise08().printResults();
+		new Exercise07().printResults();
 	}
 
 	static int BAUM = 1;
