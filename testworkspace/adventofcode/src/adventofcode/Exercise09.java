@@ -6,8 +6,9 @@ import java.util.List;
 
 public class Exercise09 extends Exercise{
 	
-	public Exercise09(String pathInput, String pathTestInput) throws IOException {
-		super(pathInput, pathTestInput);
+	public Exercise09() throws IOException {
+		super("src/adventofcode/input9.txt", "src/adventofcode/testinput9.txt");
+		
 		exNumber = 9;
 		
 		expectationA = 104054607L; 

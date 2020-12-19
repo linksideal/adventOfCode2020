@@ -8,8 +8,9 @@ import java.util.stream.Collectors;
 
 public class Exercise10 extends Exercise{
 
-	public Exercise10(String pathInput, String pathTestInput) throws IOException {
-		super(pathInput, pathTestInput);
+	public Exercise10() throws IOException {
+
+		super("src/adventofcode/input10.txt", "src/adventofcode/testinput10.txt");
 		
 		exNumber = 10;
 		
