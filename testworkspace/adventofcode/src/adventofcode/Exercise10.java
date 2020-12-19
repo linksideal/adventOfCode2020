@@ -10,6 +10,9 @@ public class Exercise10 extends Exercise{
 
 	public Exercise10(String pathInput, String pathTestInput) throws IOException {
 		super(pathInput, pathTestInput);
+		
+		exNumber = 10;
+		
 		expectationA = 1876L; 
 		expectationTestA = 10L * 22L;
 
@@ -34,10 +37,6 @@ public class Exercise10 extends Exercise{
 		solutionTestB = numberOfDistinctArrangements(testNumbers);
 		solutionB = numberOfDistinctArrangements(numbers);
 	}	
-	
-	private List<Long> parseNumbers(List<String> input) {
-		return input.stream().map(Long::parseLong).collect(Collectors.toList()); 
-	}
 	
 	private void sortAndAddStartAndEnd(List<Long> numbers) {
 		numbers.add(0L);

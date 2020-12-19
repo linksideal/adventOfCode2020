@@ -26,7 +26,9 @@ public class Test {
 //		System.out.println(new Aufgabe7(leseDatei("src/adventofcode/input7.txt")).ermittle());
 //		System.out.println(new Aufgabe8(leseDatei("src/adventofcode/input8.txt")).ermittle());
 //		System.out.println(new Aufgabe9(leseDatei("src/adventofcode/input9.txt"), leseDatei("src/adventofcode/testinput9.txt")).ermittle());
-		new Exercise10("src/adventofcode/input10.txt", "src/adventofcode/testinput10.txt").printResults();;
+		
+		new Exercise10("src/adventofcode/input10.txt", "src/adventofcode/testinput10.txt").printResults();
+		new Exercise09("src/adventofcode/input9.txt", "src/adventofcode/testinput9.txt").printResults();
 	}
 
 	static int BAUM = 1;

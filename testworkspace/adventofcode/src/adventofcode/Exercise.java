@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Exercise {
+public abstract class Exercise {
+	
+	protected int exNumber;
 
 	protected List<String> testInput;
 	protected List<String> input;
@@ -25,25 +28,34 @@ public class Exercise {
 	}
 
 	public void printResults() {
+		System.out.println("==============================");
+		System.out.println("Exercise " + exNumber);
+		System.out.println("==============================");
+		
 		solveA();
-		System.out.println("Test a) erfolgreich? " + expectationTestA.equals(solutionTestA));
-		System.out.println("Aufgabe a) erfolgreich? " + expectationA.equals(solutionA));
+		printResult("A)", solutionA, solutionTestA, expectationA, expectationTestA);
 
 		solveB();
-		System.out.println("Test b) erfolgreich? " + expectationTestB.equals(solutionTestB));
-		System.out.println("Aufgabe b) erfolgreich? " + expectationB.equals(solutionB));
+		printResult("B)", solutionB, solutionTestB, expectationB, expectationTestB);
 	}
 	
-	protected void solveA() {
-		throw new UnsupportedOperationException();
+	private void printResult(String name, Object solution, Object solutionTest, Object expectation, Object expectationTest) {
+		System.out.println(name);
+		System.out.println("------------------------------");
+		System.out.println("Test    erfolgreich?      " + expectationTest.equals(solutionTest));
+		System.out.println("Aufgabe erfolgreich?      " + expectation.equals(solution));
 	}
 	
-	protected void solveB() {
-		throw new UnsupportedOperationException();
-	}
+	protected abstract void solveA();
+	
+	protected abstract void solveB();
 	
 	private static List<String> readFile(String path) throws IOException {
 		return Files.readAllLines(Paths.get(path));
+	}
+	
+	protected List<Long> parseNumbers(List<String> input) {
+		return input.stream().map(Long::parseLong).collect(Collectors.toList()); 
 	}
 
 }
