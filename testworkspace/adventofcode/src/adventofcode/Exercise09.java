@@ -47,7 +47,7 @@ public class Exercise09 extends Exercise{
 		for (int i = sizeOfPreamble; i < zahlen.size(); i++) {
 			List<Long> preamble = zahlen.subList(i - sizeOfPreamble, i);
 			Long zahl = zahlen.get(i);
-			if (Aufgabe1.ermittleZweiZahlen(zahl, preamble) == null) {
+			if (Exercise01.ermittleZweiZahlen(zahl, preamble) == null) {
 				return zahl;
 			}
 		}

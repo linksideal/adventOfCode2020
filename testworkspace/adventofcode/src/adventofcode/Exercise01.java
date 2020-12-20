@@ -1,55 +1,47 @@
 package adventofcode;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Aufgabe1 {
+public class Exercise01 extends Exercise {
 
-	private List<String> testInput;
+	public Exercise01() throws IOException {
+		super("src/adventofcode/input1.txt", "src/adventofcode/testinput1.txt");
+		
+		exNumber = 1;
 
-	private long testErwartungA;
-	private long ergebnisA;
+		expectationTestA = 514579L;
+		expectationA = 703131L;
 
-	private long testErwartungB;
-	private long ergebnisB;
-
-	private List<String> input;
-
-	public Aufgabe1(List<String> input) {
-		this.input = input;
-		testInput = new ArrayList<>();
-		testInput.add("1721");
-		testInput.add("979");
-		testInput.add("366");
-		testInput.add("299");
-		testInput.add("675");
-		testInput.add("1456");
-
-		testErwartungA = 514579;
-		ergebnisA = 703131;
-
-		testErwartungB = 241861950;
-		ergebnisB = 272423970;
+		expectationTestB = 241861950L;
+		expectationB = 272423970L;
 	}
 
-	public String ermittle() {
+	@Override
+	protected void solveA() throws Exception {
 		List<Long> zahlen = input.stream().map(Long::parseLong).collect(Collectors.toList());
 		List<Long> testZahlen = testInput.stream().map(Long::parseLong).collect(Collectors.toList());
 
-		System.out.println("Test a) erfolgreich? " + (ermittleProduktZweiZahlen(2020, testZahlen) == testErwartungA));
-		System.out.println("Aufgabe a) erfolgreich? " + (ermittleProduktZweiZahlen(2020, zahlen) == ergebnisA));
+		solutionTestA = ermittleProduktZweiZahlen(2020, testZahlen);
+		solutionA = ermittleProduktZweiZahlen(2020, zahlen);
+	}
 
-		System.out.println("Test b) erfolgreich? " + (ermittleProduktDreiZahlen(testZahlen) == testErwartungB));
-		System.out.println("Aufgabe b) erfolgreich? " + (ermittleProduktDreiZahlen(zahlen) == ergebnisB));
+	@Override
+	protected void solveB() throws Exception {
+		List<Long> zahlen = input.stream().map(Long::parseLong).collect(Collectors.toList());
+		List<Long> testZahlen = testInput.stream().map(Long::parseLong).collect(Collectors.toList());
+		
+		solutionTestB = ermittleProduktDreiZahlen(testZahlen);
+		solutionB = ermittleProduktDreiZahlen(zahlen);
 
-		return "a) " + ermittleProduktZweiZahlen(2020, zahlen) + ", b) " + ermittleProduktDreiZahlen(zahlen);
 	}
 
 	public static long ermittleProduktZweiZahlen(long zielwert, List<Long> liste) {
 		long[] zweiZahlen = ermittleZweiZahlen(zielwert, liste);
-		if( zweiZahlen == null) {
+		if (zweiZahlen == null) {
 			return -1;
 		} else {
 			return zweiZahlen[0] * zweiZahlen[1];
@@ -88,7 +80,8 @@ public class Aufgabe1 {
 			} else if (sum == 2020) {
 				return zahlen.get(untererIndex) * zahlen.get(mittlererIndex) * zahlen.get(obererIndex);
 			} else {
-				long i = ermittleProduktZweiZahlen(2020 - zahlen.get(obererIndex), zahlen.subList(0, zahlen.size() - 1));
+				long i = ermittleProduktZweiZahlen(2020 - zahlen.get(obererIndex),
+						zahlen.subList(0, zahlen.size() - 1));
 				if (i > -1) {
 					return i * zahlen.get(obererIndex);
 				} else {
