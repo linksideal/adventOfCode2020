@@ -21,17 +21,13 @@ public class Test {
 		// testValideFields();
 		// System.out.println(aufgabe5a());
 		//System.out.println(aufgabe5b());
-		//System.out.println(new Aufgabe6(leseDatei("src/adventofcode/input6.txt")).a());
-		//System.out.println(new Aufgabe6(leseDatei("src/adventofcode/input6.txt")).b());
-//		System.out.println(new Aufgabe7(leseDatei("src/adventofcode/input7.txt")).ermittle());
-//		System.out.println(new Aufgabe8(leseDatei("src/adventofcode/input8.txt")).ermittle());
-//		System.out.println(new Aufgabe9(leseDatei("src/adventofcode/input9.txt"), leseDatei("src/adventofcode/testinput9.txt")).ermittle());
 		
 		new Exercise10().printResults();
 		new Exercise09().printResults();
 		new Exercise08().printResults();
 		new Exercise07().printResults();
 		new Exercise06().printResults();
+		new Exercise05().printResults();
 	}
 
 	static int BAUM = 1;
@@ -164,70 +160,6 @@ public class Test {
 		for (Field field : valideFields) {
 			System.out.println(field.istValide());
 		}
-	}
-
-	private static void testSeatIds() throws Exception {
-		List<Seat> seats = new ArrayList<>();
-		seats.add(new Seat("FBFBBFFRLR"));
-		seats.add(new Seat("BFFFBBFRRR"));
-		seats.add(new Seat("FFFBBBFRRR"));
-		seats.add(new Seat("BBFFBBFRLL"));
-		List<Integer> erwartungen = new ArrayList<>();
-		erwartungen.add(357);
-		erwartungen.add(567);
-		erwartungen.add(119);
-		erwartungen.add(820);
-		for (Seat seat : seats) {
-			System.out.println(seat.id == erwartungen.get(seats.indexOf(seat)));
-		}
-	}
-
-	private static int aufgabe5a() throws Exception {
-		testSeatIds();
-
-		List<Integer> seatIds = new ArrayList<>();
-		for (Seat seat : ladeSeats()) {
-			seatIds.add(seat.id);
-		}
-		return Collections.max(seatIds);
-	}
-
-	private static int aufgabe5b() throws Exception {
-		List<Integer> freeSeatIds = freeSeatIds(ladeSeats());
-		for (int seatId : freeSeatIds) {
-			if (!nachbarAuchFrei(freeSeatIds, seatId))
-				return seatId;
-		}
-		return -1;
-	}
-
-	private static boolean nachbarAuchFrei(List<Integer> freeSeatIds, int seatId) {
-		return freeSeatIds.contains(seatId - 1) || freeSeatIds.contains(seatId + 1);
-	}
-
-	private static List<Integer> freeSeatIds(List<Seat> seats) {
-		List<Integer> seatIds = seats.stream().map(x -> x.id).collect(Collectors.toList());
-		Collections.sort(seatIds);
-		int i = 0;
-		List<Integer> freeSeatIds = new ArrayList<>();
-		for (int seatId : seatIds) {
-			while (i < seatId) {
-				freeSeatIds.add(i);
-				i++;
-			}
-			i++;
-		}
-		return freeSeatIds;
-	}
-
-	private static List<Seat> ladeSeats() throws Exception {
-		String pfad = "src/adventofcode/input5.txt";
-		List<String> zeilen = leseDatei(pfad);
-		List<Seat> seats = new ArrayList<>();
-		for (String zeile : zeilen) {
-			seats.add(new Seat(zeile));
-		}
-		return seats;
 	}
 
 }
