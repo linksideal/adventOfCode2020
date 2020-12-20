@@ -23,6 +23,10 @@ public abstract class Exercise {
 	protected Object solutionTestB;
 	protected Object solutionB;
 
+	public Exercise(String pathInput) throws IOException {
+		this.input = readFile(pathInput);
+	}
+	
 	public Exercise(String pathInput, String pathTestInput) throws IOException {
 		this.input = readFile(pathInput);
 		this.testInput = readFile(pathTestInput);
