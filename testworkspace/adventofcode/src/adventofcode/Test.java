@@ -5,9 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Test {
 
@@ -16,18 +14,13 @@ public class Test {
 //		System.out.println(aufgabe1b());
 //		System.out.println(aufgabe3a());
 //		System.out.println(aufgabe3b());
-		// System.out.println(aufgabe4a());
-		// System.out.println(aufgabe4b());
-		// testValideFields();
-		// System.out.println(aufgabe5a());
-		//System.out.println(aufgabe5b());
-		
 		new Exercise10().printResults();
 		new Exercise09().printResults();
 		new Exercise08().printResults();
 		new Exercise07().printResults();
 		new Exercise06().printResults();
 		new Exercise05().printResults();
+		new Exercise04().printResults();
 	}
 
 	static int BAUM = 1;
@@ -102,63 +95,6 @@ public class Test {
 			return WIESE;
 		} else {
 			return BAUM;
-		}
-	}
-
-	private static List<Passport> ladePassports() throws IOException {
-		String pfad = "src/adventofcode/input4.txt";
-		List<String> zeilen = leseDatei(pfad);
-		List<Passport> passports = ermittlePassports(zeilen);
-		return passports;
-	}
-
-	private static int aufgabe4a() throws IOException {
-		int anzahl = 0;
-		for (Passport passport : ladePassports()) {
-			if (passport.besitztAlleObligatorischenFields()) {
-				anzahl++;
-			}
-		}
-		return anzahl;
-
-	}
-
-	private static int aufgabe4b() throws IOException {
-		int anzahl = 0;
-		for (Passport passport : ladePassports()) {
-			if (passport.besitztAlleObligatorischenFieldsUndDieseSindValide()) {
-				anzahl++;
-			}
-		}
-		return anzahl;
-	}
-
-	private static List<Passport> ermittlePassports(List<String> zeilen) {
-		List<Passport> passports = new ArrayList<>();
-		List<String> rohdaten = new ArrayList<>();
-		for (String zeile : zeilen) {
-			if (zeile.isBlank()) {
-				passports.add(new Passport(rohdaten));
-				rohdaten.clear();
-			} else {
-				rohdaten.add(zeile);
-			}
-		}
-		passports.add(new Passport(rohdaten));
-		return passports;
-	}
-
-	private static void testValideFields() {
-		List<Field> valideFields = new ArrayList<>();
-		valideFields.add(new Field("byr:2002"));
-		valideFields.add(new Field("hgt:60in"));
-		valideFields.add(new Field("hgt:190cm"));
-		valideFields.add(new Field("hcl:#123abc"));
-		valideFields.add(new Field("ecl:brn"));
-		valideFields.add(new Field("pid:000000001"));
-
-		for (Field field : valideFields) {
-			System.out.println(field.istValide());
 		}
 	}
 
